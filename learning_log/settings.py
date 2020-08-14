@@ -149,8 +149,10 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     # Honor the 'X-Forwarded-Proto' header for request.is_secure().
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    # Allow all host headers.
-    ALLOWED_HOSTS = ['*']
+    # Allow only Heroku to host the project
+    ALLOWED_HOSTS = ['logoflearningapp.herokuapp.com']
+
+    DEBUG = False
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -162,3 +164,5 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+    
